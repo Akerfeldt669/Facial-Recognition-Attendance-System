@@ -1,0 +1,2607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حضوري</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+	<link href="https://fonts.googleapis.com/css2?family=Amiri&display=swap" rel="stylesheet">
+
+    <style>
+
+        :root {
+            --primary: #3a86ff;
+            --primary-light: #5e9cff;
+            --secondary: #ff006e;
+            --success: #38b000;
+            --warning: #ffbe0b;
+            --danger: #ff5d8f;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --bg-gradient: linear-gradient(135deg, #8bc6ec 0%, #9599E2 100%);
+            --card-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+            --transition-normal: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--light);
+            color: var(--dark);
+            min-height: 100vh;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 800 800'%3E%3Cg fill='none' stroke='%23e6e6e6' stroke-width='1'%3E%3Cpath d='M769 229L1037 260.9M927 880L731 737 520 660 309 538 40 599 295 764 126.5 879.5 40 599-197 493 102 382-31 229 126.5 79.5-69-63'/%3E%3Cpath d='M-31 229L237 261 390 382 603 493 308.5 537.5 101.5 381.5M370 905L295 764'/%3E%3Cpath d='M520 660L578 842 731 737 840 599 603 493 520 660 295 764 309 538 390 382 539 269 769 229 577.5 41.5 370 105 295 -36 126.5 79.5 237 261 102 382 40 599 -69 737 127 880'/%3E%3Cpath d='M520-140L578.5 42.5 731-63M603 493L539 269 237 261 370 105M902 382L539 269M390 382L102 382'/%3E%3Cpath d='M-222 42L126.5 79.5 370 105 539 269 577.5 41.5 927 80 769 229 902 382 603 493 731 737M295-36L577.5 41.5M578 842L295 764M40-201L127 80M102 382L-261 269'/%3E%3C/g%3E%3Cg fill='%23e6e6e6'%3E%3Ccircle cx='769' cy='229' r='5'/%3E%3Ccircle cx='539' cy='269' r='5'/%3E%3Ccircle cx='603' cy='493' r='5'/%3E%3Ccircle cx='731' cy='737' r='5'/%3E%3Ccircle cx='520' cy='660' r='5'/%3E%3Ccircle cx='309' cy='538' r='5'/%3E%3Ccircle cx='295' cy='764' r='5'/%3E%3Ccircle cx='40' cy='599' r='5'/%3E%3Ccircle cx='102' cy='382' r='5'/%3E%3Ccircle cx='127' cy='80' r='5'/%3E%3Ccircle cx='370' cy='105' r='5'/%3E%3Ccircle cx='578' cy='42' r='5'/%3E%3Ccircle cx='237' cy='261' r='5'/%3E%3Ccircle cx='390' cy='382' r='5'/%3E%3C/g%3E%3C/svg%3E");
+            background-attachment: fixed;
+        }
+
+        /* Header Styles */
+        .header {
+            background: #fff;
+            padding: 15px 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: var(--transition-normal);
+        }
+
+        .header:hover {
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo {
+            width: 50px;
+            height: 50px;
+            border-radius: 10px;
+            background: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            box-shadow: 0 4px 8px rgba(58, 134, 255, 0.3);
+            transition: var(--transition-bounce);
+        }
+
+        .logo:hover {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .title-container h1 {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--dark);
+            margin: 0;
+        }
+
+        .title-container p {
+            font-size: 14px;
+            color: #6c757d;
+            margin: 0;
+        }
+
+        .user-profile {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--bg-gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Main Content Styles */
+        .main-content {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 0 20px;
+            position: relative;
+        }
+
+        /* Cards Container */
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            padding: 20px 0;
+        }
+
+        /* Card Styles */
+        .card {
+            background: white;
+            border-radius: 20px;
+            box-shadow: var(--card-shadow);
+            padding: 25px;
+            text-align: center;
+            transition: var(--transition-bounce);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--primary);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: var(--transition-normal);
+        }
+
+        .card:hover {
+            transform: translateY(-15px) rotateY(5deg);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .card h2 {
+            margin-top: 10px;
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--dark);
+            position: relative;
+            z-index: 2;
+        }
+
+        .card p {
+            color: #6c757d;
+            font-size: 14px;
+            margin: 15px 0;
+        }
+
+        .card-icon {
+            font-size: 36px;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            transition: var(--transition-bounce);
+            background: var(--bg-gradient);
+            color: white;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .card:hover .card-icon {
+            transform: scale(1.1) translateZ(30px);
+        }
+
+        /* Button Styles */
+        .btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            transition: var(--transition-normal);
+            box-shadow: 0 4px 10px rgba(58, 134, 255, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .btn:hover {
+            background: var(--primary-light);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(58, 134, 255, 0.4);
+        }
+
+        .btn-sm {
+            padding: 8px 15px;
+            font-size: 12px;
+        }
+
+        .btn-lg {
+            padding: 12px 24px;
+            font-size: 16px;
+        }
+
+        .btn-secondary {
+            background: var(--secondary);
+            box-shadow: 0 4px 10px rgba(255, 0, 110, 0.3);
+        }
+
+        .btn-secondary:hover {
+            background: var(--danger);
+            box-shadow: 0 6px 15px rgba(255, 0, 110, 0.4);
+        }
+
+        .btn-success {
+            background: var(--success);
+            box-shadow: 0 4px 10px rgba(56, 176, 0, 0.3);
+        }
+
+        .btn-success:hover {
+            background: #43c800;
+            box-shadow: 0 6px 15px rgba(56, 176, 0, 0.4);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            box-shadow: none;
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+            justify-content: center;
+        }
+
+        /* Section Content Styles */
+        .section-content {
+            background: white;
+            border-radius: 20px;
+            box-shadow: var(--card-shadow);
+            padding: 30px;
+            margin-bottom: 30px;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Table Styles */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        thead {
+            background: var(--primary);
+            color: white;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #eaeaea;
+        }
+
+        th {
+            font-weight: 600;
+            cursor: pointer;
+            position: relative;
+            transition: var(--transition-normal);
+        }
+
+        th:hover {
+            background: var(--primary-light);
+        }
+
+        th::after {
+            content: '⇅';
+            position: absolute;
+            right: 10px;
+            opacity: 0.5;
+        }
+
+        th.asc::after {
+            content: '↑';
+            opacity: 1;
+        }
+
+        th.desc::after {
+            content: '↓';
+            opacity: 1;
+        }
+
+        tbody tr {
+            transition: var(--transition-normal);
+        }
+
+        tbody tr:hover {
+            background: #f8f9fa;
+            transform: scale(1.01);
+        }
+
+        /* Form Styles */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ced4da;
+            border-radius: 10px;
+            font-size: 14px;
+            transition: var(--transition-normal);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(58, 134, 255, 0.25);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            font-size: 14px;
+            color: #495057;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        .modal-content {
+            background: white;
+            margin: 10% auto;
+            padding: 30px;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            transform: translateY(20px);
+            animation: slideIn 0.4s forwards cubic-bezier(0.68, -0.55, 0.27, 1.55);
+        }
+
+        @keyframes slideIn {
+            to { transform: translateY(0); }
+        }
+
+        /* Filters and Search */
+        .filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 20px;
+            align-items: center;
+        }
+#edit-professor-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    max-width: 600px;
+    z-index: 1000;
+}
+
+        .filters label {
+            margin-bottom: 0;
+            font-weight: 500;
+            margin-right: 10px;
+        }
+
+        .filters select, .search-bar input {
+            padding: 10px 15px;
+            border: 1px solid #ced4da;
+            border-radius: 10px;
+            font-size: 14px;
+            transition: var(--transition-normal);
+        }
+
+        .filters select:focus, .search-bar input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(58, 134, 255, 0.25);
+        }
+
+        .search-bar {
+            flex-grow: 1;
+            max-width: 100%;
+            position: relative;
+        }
+
+        .search-bar i {
+            position: absolute;
+            top: 50%;
+            left: 15px;
+            transform: translateY(-50%);
+            color: #6c757d;
+        }
+
+        .search-bar input {
+            width: 100%;
+            padding-left: 40px;
+        }
+
+        /* Action Buttons */
+        .action-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 50%;
+            transition: var(--transition-normal);
+            font-size: 16px;
+        }
+
+        .edit-btn {
+            color: var(--primary);
+        }
+
+        .delete-btn {
+            color: var(--danger);
+        }
+
+        .action-btn:hover {
+            background: #f8f9fa;
+            transform: scale(1.2);
+        }
+
+        /* Pagination */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 30px;
+        }
+
+        .pagination button {
+            background: white;
+            border: 1px solid #dee2e6;
+            color: var(--primary);
+            border-radius: 10px;
+            padding: 8px 15px;
+            cursor: pointer;
+            transition: var(--transition-normal);
+        }
+
+        .pagination button:hover:not(:disabled) {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .pagination button:disabled {
+            color: #6c757d;
+            cursor: not-allowed;
+        }
+
+        /* Back Button */
+        .back-button {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 500;
+            background: white;
+            border: 1px solid #dee2e6;
+            padding: 10px 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: var(--transition-normal);
+            margin-top: 20px;
+        }
+
+        .back-button:hover {
+            background: #f8f9fa;
+            transform: translateX(-5px);
+        }
+
+        /* Form Overlay */
+       .overlay {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 900;
+    backdrop-filter: blur(3px);
+}
+
+
+        /* Student Form (Fixed) */
+#add-student-form, #edit-student-form {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    max-width: 600px;
+    max-height: 80vh; /* NEW: Limit height */
+    overflow-y: auto;  /* NEW: Scroll inside if too tall */
+    z-index: 1000;
+}
+
+
+        #edit-student-form {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        /* Form Actions */
+        .form-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        /* Status Badge */
+        .status-badge {
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+            text-transform: uppercase;
+        }
+
+        .status-present {
+            background-color: rgba(56, 176, 0, 0.1);
+            color: var(--success);
+        }
+
+        .status-absent {
+            background-color: rgba(255, 0, 110, 0.1);
+            color: var(--danger);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+
+            .header-content {
+                flex-direction: column;
+            }
+
+            .logo-container {
+                flex-direction: column;
+            }
+
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            .filters {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            table {
+                display: block;
+                overflow-x: auto;
+            }
+
+            th, td {
+                min-width: 120px;
+            }
+
+            .form-actions {
+                flex-direction: column-reverse;
+            }
+
+            .form-actions button {
+                width: 100%;
+            }
+        }
+
+        /* Animation for Section Transitions */
+        .hidden {
+            display: none !important;
+        }
+
+        .fade-in {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        /* 3D effect for cards */
+        .card {
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+
+        .card-inner {
+            position: relative;
+            z-index: 2;
+            transform: translateZ(20px);
+            transition: var(--transition-bounce);
+        }
+
+        .card:hover .card-inner {
+            transform: translateZ(40px);
+        }
+
+        /* Background wave */
+        .wave {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 200px;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%233a86ff' fill-opacity='0.1' d='M0,128L48,149.3C96,171,192,213,288,213.3C384,213,480,171,576,138.7C672,107,768,85,864,85.3C960,85,1056,107,1152,144C1248,181,1344,235,1392,261.3L1440,288L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E") no-repeat bottom;
+            background-size: cover;
+            pointer-events: none;
+            z-index: -1;
+			
+        }
+		.modal-form {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    max-width: 600px;
+    z-index: 1000;
+}
+
+    </style>
+</head>
+<body>
+    <div class="wave"></div>
+
+<!-- Header -->
+<div class="header" style="display: flex; justify-content: space-between; align-items: center; padding: 10px 30px; background-color: #fff; border-bottom: 1px solid #eee;">
+    <div class="header-content" style="display: flex; align-items: center;">
+        <div class="logo-container" style="display: flex; align-items: center; gap: 15px;">
+            <<div class="logo" style="
+    background-color: #bfa76f; /* Gold background */
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+">
+    <i class="fas fa-graduation-cap" style="color: #1c6530; font-size: 24px;"></i> <!-- Green icon -->
+</div>
+
+            <div class="title-container" style="text-align: right;">
+                <h1 style="
+                    font-family: 'Amiri', serif;
+                    font-size: 24px;
+                    direction: rtl;
+                    margin: 0;
+                    color: #bfa76f;
+                ">
+                    ح<strong style="letter-spacing: -1px;">ضـــــ</strong>و<span>ري</span>
+                </h1>
+                <p style="
+                    font-size: 13px;
+                    color: #2d4e38;
+                    margin: 0;
+                    font-family: 'Segoe UI', sans-serif;
+                ">
+                    University of Souk Ahras – Official Attendance System
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="user-profile" style="display: flex; align-items: center; gap: 10px;">
+        <div class="user-avatar" style="
+            background-color: #1c6530;
+            color: white;
+            border-radius: 50%;
+            width: 35px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        ">A</div>
+        <span style="font-size: 14px; color: #333;">Admin</span>
+    </div>
+</div>
+
+
+    <!-- Main Interface -->
+    <div id="main-interface" class="main-content">
+        <div class="container">
+            <!-- Card 1: Manage Students -->
+            <div class="card" id="add-student-card">
+                <div class="card-inner">
+                    <div class="card-icon">
+                        <i class="fas fa-user-plus"></i>
+                    </div>
+                    <h2>Manage Students</h2>
+                    <p>Add, edit, or delete student records in the system</p>
+                    <div class="btn-group">
+                        <button class="btn" onclick="showAddStudentForm()">Add New</button>
+                        <button class="btn btn-outline" onclick="showSection('students-list-by-level-group')">Manage List</button>
+                    </div>
+                </div>
+            </div>
+
+          <!-- Card 2: Presence Viewer -->
+<div class="card" id="presence-card">
+    <div class="card-inner">
+        <div class="card-icon">
+            <i class="fas fa-user-check"></i>
+        </div>
+        <h2>View Presence</h2>
+        <p>Check student presences by session</p>
+        <button class="btn" onclick="showSection('presence-view')">View Presences</button>
+    </div>
+</div>
+
+             <!-- Card 3: Professors Presence -->
+<div class="card" id="professors-presence-card">
+    <div class="card-inner">
+        <div class="card-icon">
+            <i class="fas fa-user-tie"></i>
+        </div>
+        <h2>Professors Presence</h2>
+        <p>Check professors' presence by session</p>
+        <button class="btn" onclick="showSection('professors-presence-view')">View Presences</button>
+    </div>
+</div>
+
+            <!-- Card: Manage Professors -->
+<div class="card" id="add-professor-card">
+    <div class="card-inner">
+        <div class="card-icon">
+            <i class="fas fa-chalkboard-teacher"></i>
+        </div>
+        <h2>Manage Professors</h2>
+        <p>Add, edit, or delete professor records in the system</p>
+        <div class="btn-group">
+            <button class="btn" onclick="showAddProfessorForm()">Add New</button>
+            <button class="btn btn-outline" onclick="showSection('professors-list')">Manage List</button>
+        </div>
+    </div>
+</div>
+
+
+<!-- Card: Manage Modules -->
+<div class="card" id="modules-card">
+    <div class="card-inner">
+        <div class="card-icon">
+            <i class="fas fa-book-open"></i>
+        </div>
+        <h2>Manage Modules</h2>
+        <p>Add, edit, or delete modules and assign professors</p>
+        <div class="btn-group">
+            <button class="btn" onclick="showAddModuleForm()">Add New</button>
+<button class="btn btn-outline" onclick="showModules()">Manage List</button>
+        </div>
+    </div>
+</div>
+ 
+
+           <!-- Card: Plan Séance -->
+<div class="card" style="padding: 20px; border-radius: 15px;">
+  <div class="card-inner" style="display: flex; flex-direction: column; align-items: center; gap: 15px;">
+    <div class="card-icon" style="font-size: 40px; color: #4CAF50;">
+      <i class="fas fa-calendar-plus"></i>
+    </div>
+    <h2 style="margin: 0;">Plan Weekly Sessions</h2>
+    <p style="text-align: center; margin: 0;">Create recurring class sessions by level, group, day, and hour.</p>
+
+    <!-- 🔥 Two buttons in a row -->
+    <div style="display: flex; justify-content: center; gap: 10px; width: 100%; margin-top: 10px;">
+      <button class="btn btn-success" style="flex: 1;" onclick="showAddPlanningForm()">➕ Plan</button>
+<button class="btn btn-primary" style="flex: 1;" onclick="showSessionsList()">📋 Show Sessions</button>
+    </div>
+
+  </div>
+</div>
+
+
+
+
+<table id="planned-sessions-table" class="styled-table" style="margin-top: 20px; display: none;">
+    <thead>
+        <tr>
+            <th>Level</th>
+            <th>Group</th>
+            <th>Day</th>
+            <th>Start - End</th>
+        </tr>
+    </thead>
+    <tbody></tbody>
+</table>
+
+        </div>
+    </div>
+    </div>
+
+    <!-- Add Student Form -->
+    <div id="add-student-form" style="display: none;">
+        <h3>Add New Student</h3>
+        <form id="student-form">
+            <div class="form-group">
+                <label for="student-matricule">Matricule:</label>
+                <input type="text" id="student-matricule" class="form-control" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="student-lastname">Last Name (Nom):</label>
+                <input type="text" id="student-lastname" class="form-control" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="student-firstname">First Name (Prénom):</label>
+                <input type="text" id="student-firstname" class="form-control" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="student-email">Email:</label>
+                <input type="email" id="student-email" class="form-control" required>
+            </div>
+            <div class="form-group">
+    <label for="student-password">Password:</label>
+    <input type="text" id="student-password" class="form-control" placeholder="Example: hcPud5Tq" required>
+</div>
+
+            <div class="form-group">
+                <label for="student-level">Level (Niveau):</label>
+                <select id="student-level" class="form-control" required>
+                    <option value="1">L1</option>
+                    <option value="2">L2</option>
+                    <option value="3">L3</option>
+                    <option value="4">M1</option>
+                    <option value="5">M2</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="student-group">Group (Groupe):</label>
+                <select id="student-group" class="form-control" required>
+                    
+                </select>
+            </div>
+			<div class="form-group">
+    <label for="student-photo">Student Photo:</label>
+    <input type="file" id="student-photo" name="photo" accept="image/*" class="form-control" required>
+</div>
+
+            
+            <div class="form-actions">
+                <button type="button" class="btn btn-outline" onclick="hideAddStudentForm()">Cancel</button>
+                <button type="submit" class="btn btn-success">Save Student</button>
+            </div>
+        </form>
+    </div>
+	
+<!-- Add Professor Form -->
+<div id="add-professor-form" style="display: none;" class="modal-form">
+    <h3>Add New Professor</h3>
+    <form id="professor-form">
+        <div class="form-group">
+            <label for="professor-lastname">Last Name (Nom):</label>
+            <input type="text" id="professor-lastname" class="form-control" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="professor-firstname">First Name (Prénom):</label>
+            <input type="text" id="professor-firstname" class="form-control" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="professor-email">Email:</label>
+            <input type="email" id="professor-email" class="form-control" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="professor-grade">Grade:</label>
+            <select id="professor-grade" class="form-control" required>
+                <option value="Professeur">Professeur</option>
+                <option value="Maître de conférences">Maître de conférences</option>
+                <option value="Assistant">Assistant</option>
+                <option value="Vacataire">Vacataire</option>
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label for="professor-departement">Departement:</label>
+            <select id="professor-departement" class="form-control" required>
+                <option value="Informatique">Informatique</option>
+                <option value="Mathématiques">Mathématiques</option>
+                <option value="Physique">Physique</option>
+                <option value="Chimie">Chimie</option>
+                <option value="Langues">Langues</option>
+            </select>
+        </div>
+        
+        <div class="form-actions">
+            <button type="button" class="btn btn-outline" onclick="hideAddProfessorForm()">Cancel</button>
+            <button type="submit" class="btn btn-success">Save Professor</button>
+        </div>
+    </form>
+</div>
+<!-- Add Module Form -->
+<div id="add-module-form" style="display: none;" class="modal-form">
+    <h3>Add New Module</h3>
+    <form id="module-form">
+        <div class="form-group">
+            <label for="module-name">Module Name:</label>
+            <input type="text" id="module-name" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="module-professor">Responsible Professor:</label>
+            <select id="module-professor" class="form-control" required>
+                <!-- Filled dynamically -->
+            </select>
+        </div>
+        <div class="form-actions">
+            <button type="button" class="btn btn-outline" onclick="hideAddModuleForm()">Cancel</button>
+            <button type="submit" class="btn btn-success">Save Module</button>
+        </div>
+    </form>
+</div>
+<div id="edit-module-form" class="modal-form" style="display: none;">
+    <h3>Edit Module</h3>
+    <form id="module-edit-form">
+        <input type="hidden" id="edit-module-id">
+
+        <div class="form-group">
+            <label for="edit-module-name">Module Name:</label>
+            <input type="text" id="edit-module-name" class="form-control" required>
+        </div>
+
+        <div class="form-group">
+            <label for="edit-module-professor">Responsible Professor:</label>
+            <select id="edit-module-professor" class="form-control" required></select>
+        </div>
+
+        <div class="form-actions">
+            <button type="button" class="btn btn-outline" onclick="hideEditModuleForm()">Cancel</button>
+            <button type="submit" class="btn btn-success">Save Changes</button>
+        </div>
+    </form>
+</div>
+<div id="add-planning-form" class="modal-form" style="display: none;">
+    <h3>Plan a Weekly Session</h3>
+    <form id="planning-form">
+        <div class="form-group">
+            <label for="planning-module">Module:</label>
+            <select id="planning-module" class="form-control" required></select>
+        </div>
+
+        <div class="form-group">
+            <label for="planning-niveau">Level:</label>
+            <select id="planning-niveau" class="form-control" required>
+                <option value="1">L1</option>
+                <option value="2">L2</option>
+                <option value="3">L3</option>
+                <option value="4">M1</option>
+                <option value="5">M2</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="planning-groupe">Group:</label>
+            <select id="planning-groupe" class="form-control" required>
+                <option value="1">Groupe 1</option>
+                <option value="2">Groupe 2</option>
+                <option value="3">Groupe 3</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="planning-start">Start Time:</label>
+            <input type="time" id="planning-start" class="form-control" required>
+        </div>
+
+        <div class="form-group">
+            <label for="planning-end">End Time:</label>
+            <input type="time" id="planning-end" class="form-control" required>
+        </div>
+
+        <div class="form-group">
+            <label for="semester-start">Semester Start Date:</label>
+            <input type="date" id="semester-start" class="form-control" required>
+        </div>
+
+        <div class="form-group">
+            <label for="semester-end">Semester End Date:</label>
+            <input type="date" id="semester-end" class="form-control" required>
+        </div>
+
+        <div class="form-actions">
+            <button type="button" class="btn btn-outline" onclick="hideAddPlanningForm()">Cancel</button>
+            <button type="submit" class="btn btn-success">Generate Semester</button>
+        </div>
+    </form>
+</div>
+
+
+
+<!-- Edit Professor Form -->
+<div id="edit-professor-container" style="display: none;">
+    <h3>Edit Professor</h3>
+    <form id="edit-professor-form">
+
+        <input type="hidden" id="edit-professor-id">
+
+        <div class="form-group">
+            <label for="edit-professor-lastname">Last Name:</label>
+            <input type="text" id="edit-professor-lastname" class="form-control" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="edit-professor-firstname">First Name:</label>
+            <input type="text" id="edit-professor-firstname" class="form-control" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="edit-professor-email">Email:</label>
+            <input type="email" id="edit-professor-email" class="form-control" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="edit-professor-grade">Grade:</label>
+            <select id="edit-professor-grade" class="form-control" required>
+                <option value="Professeur">Professeur</option>
+                <option value="Maître de conférences">Maître de conférences</option>
+                <option value="Assistant">Assistant</option>
+                <option value="Vacataire">Vacataire</option>
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label for="edit-professor-departement">Departement:</label>
+            <select id="edit-professor-departement" class="form-control" required>
+                <option value="Informatique">Informatique</option>
+                <option value="Mathématiques">Mathématiques</option>
+                <option value="Physique">Physique</option>
+                <option value="Chimie">Chimie</option>
+                <option value="Langues">Langues</option>
+            </select>
+        </div>
+        
+        <div class="form-actions">
+            <button type="button" class="btn btn-outline" onclick="hideEditProfessorForm()">Cancel</button>
+            <button type="submit" class="btn btn-success">Save Changes</button>
+        </div>
+    </form>
+</div>
+
+<!-- Delete Confirmation Modal for Professors -->
+<div id="delete-professor-confirmation" class="modal">
+    <div class="modal-content">
+        <input type="hidden" id="delete-professor-id">
+        <p>Are you sure you want to delete this professor?</p>
+        <div class="form-actions">
+            <button class="btn btn-danger" onclick="confirmDeleteProfessor()">Yes, Delete</button>
+            <button class="btn btn-outline" onclick="hideDeleteProfessorConfirmation()">Cancel</button>
+        </div>
+    </div>
+</div>
+
+<!-- Professors List Section -->
+<div id="professors-list" class="main-content hidden">
+    <div class="section-content">
+        <h2><i class="fas fa-chalkboard-teacher"></i> Professors List</h2>
+        
+        <!-- Filters Row -->
+        <div class="filters">
+            <div class="search-bar">
+                <i class="fas fa-search"></i>
+                <input type="text" id="professor-search-input" oninput="filterProfessors()" placeholder="Search by name or department...">
+            </div>
+        </div>
+
+        <!-- Professors Table -->
+        <table id="professors-table">
+            <thead>
+                <tr>
+                    <th onclick="sortProfessorsTable(0)">ID</th>
+                    <th onclick="sortProfessorsTable(1)">Name</th>
+                    <th onclick="sortProfessorsTable(2)">Grade</th>
+                    <th onclick="sortProfessorsTable(3)">Department</th>
+                    <th onclick="sortProfessorsTable(4)">Email</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Rows populated dynamically -->
+            </tbody>
+        </table>
+        
+        <!-- Pagination -->
+        <div class="pagination">
+            <button id="prev-professor-page" onclick="changeProfessorPage(-1)" disabled>Previous</button>
+            <button id="next-professor-page" onclick="changeProfessorPage(1)">Next</button>
+        </div>
+        
+        <button class="back-button" onclick="showSection('main-interface')">Back to Main</button>
+    </div>
+</div>
+    <div id="presence-view" class="main-content hidden">
+    <div class="section-content">
+        <h2><i class="fas fa-user-check"></i> Presence Records</h2>
+        <div class="filters">
+            <label for="sessionSelect">Choose Session:</label>
+            <select id="sessionSelect" onchange="loadPresences(this.value)">
+                <option value="">-- Select --</option>
+                <!-- Sessions will be loaded dynamically -->
+            </select>
+        </div>
+
+        <table id="presenceTable">
+            <thead>
+  <tr>
+    <th>Matricule</th>
+    <th>Nom</th>
+    <th>Prénom</th>
+    <th>Module</th>
+    <th>Statut</th> <!-- NEW -->
+    <th>Heure</th>
+    <th>Date</th>
+  </tr>
+</thead>
+
+            <tbody></tbody>
+        </table>
+
+        <button class="back-button" onclick="showSection('main-interface')">⬅️ Back to Main</button>
+    </div>
+</div>
+
+    
+
+    <!-- Validation Section -->
+    <div id="validation" class="main-content hidden">
+        <div class="section-content">
+            <p>Validate attendance records here.</p>
+            <button class="back-button" onclick="showSection('main-interface')">Back to Main</button>
+        </div>
+    </div>
+
+    <!-- Students List by Level and Group Section -->
+    <!-- Students List by Level and Group Section -->
+<div id="students-list-by-level-group" class="main-content hidden">
+    <div class="section-content">
+        <h2><i class="fas fa-users"></i> Manage Students (by Level & Group)</h2>
+
+        <!-- Filters for Level and Group -->
+        <div class="filters">
+            <div>
+                <label for="level-filter">Select Level:</label>
+                <select id="level-filter" onchange="loadGroupsForStudentManage()" class="form-control">
+                    <option value="" disabled selected>Select Level</option>
+                    <option value="1">L1</option>
+                    <option value="2">L2</option>
+                    <option value="3">L3</option>
+                    <option value="4">M1</option>
+                    <option value="5">M2</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="group-filter">Select Group:</label>
+                <select id="group-filter" onchange="fetchStudentsByLevelGroup()" class="form-control" disabled>
+                    <option value="" disabled selected>Select Group</option>
+                    <!-- Groups will load dynamically here -->
+                </select>
+            </div>
+        </div>
+
+        <!-- Students Table -->
+        <table id="students-table-by-level-group">
+            <thead>
+                <tr>
+                    <th>Matricule</th>
+                    <th>Name</th>
+                    <th>Level</th>
+                    <th>Group</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Rows populated dynamically -->
+            </tbody>
+        </table>
+
+        <button class="back-button" onclick="showSection('main-interface')">⬅️ Back to Main</button>
+    </div>
+</div>
+
+<div id="professors-presence-view" class="main-content hidden">
+    <div class="section-content">
+        <h2><i class="fas fa-user-tie"></i> Professors Presence Records</h2>
+        <div class="filters">
+            <label for="profSessionSelect">Choose Session:</label>
+            <select id="profSessionSelect" onchange="loadProfessorsPresences(this.value)">
+                <option value="">-- Select --</option>
+            </select>
+        </div>
+
+        <table id="professorsPresenceTable">
+            <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Prénom</th>
+                    <th>Module</th>
+                    <th>Statut</th>
+                    <th>Heure</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+
+        <button class="back-button" onclick="showSection('main-interface')">⬅️ Back to Main</button>
+    </div>
+</div>
+<!-- Planned Sessions List Section -->
+<div id="sessions-list" class="main-content hidden">
+    <div class="section-content">
+        <h2><i class="fas fa-calendar-alt"></i> Planned Sessions List</h2>
+
+        <!-- Search bar -->
+        <div class="filters">
+            <div class="search-bar">
+                <i class="fas fa-search"></i>
+                <input type="text" id="search-session-input" oninput="filterSessions()" placeholder="Search by module or group...">
+            </div>
+        </div>
+
+        <!-- Sessions Table -->
+        <table id="sessions-table">
+            <thead>
+                <tr>
+                    <th>Module</th>
+                    <th>Group</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Populated dynamically -->
+            </tbody>
+        </table>
+
+        <button class="back-button" onclick="showSection('main-interface')">⬅️ Previous</button>
+    </div>
+</div>
+
+    <script>
+	function loadProfessorsPresences(sessionId) {
+    if (!sessionId) return;
+
+    fetch(`get_professors_presence.php?session=${sessionId}`)
+        .then(res => res.json())
+        .then(data => {
+            const tbody = document.querySelector("#professorsPresenceTable tbody");
+            tbody.innerHTML = "";
+
+            if (!data.length) {
+                tbody.innerHTML = "<tr><td colspan='6'>No data found.</td></tr>";
+                return;
+            }
+
+            data.forEach(item => {
+                const row = document.createElement("tr");
+                row.innerHTML = `
+                    <td>${item.nom}</td>
+                    <td>${item.prenom}</td>
+                    <td>${item.nom_module}</td>
+                    <td><span class="status-badge ${item.statut === 'présent' ? 'status-present' : item.statut === 'retard' ? 'status-late' : 'status-absent'}">${item.statut}</span></td>
+                    <td>${item.heure_reconnaissance}</td>
+                    <td>${item.date_reconnaissance}</td>
+                `;
+                tbody.appendChild(row);
+            });
+        })
+        .catch(err => {
+            console.error("❌ Failed to fetch professor presences:", err);
+        });
+}
+
+// Populate session dropdown
+function fetchSessionsForProfDropdown() {
+    fetch('fetch_sessions.php')
+        .then(res => res.json())
+        .then(data => {
+            const select = document.getElementById("profSessionSelect");
+            select.innerHTML = '<option value="">-- Select Session --</option>';
+
+            data.forEach(session => {
+                const option = document.createElement("option");
+                option.value = session.id_seance;
+                option.textContent = `${session.nom_module} - ${session.date_seance}`;
+                select.appendChild(option);
+            });
+        })
+        .catch(err => {
+            console.error("❌ Failed to fetch sessions for professors:", err);
+        });
+}
+	function loadPresences(sessionId) {
+    if (!sessionId) return;
+
+    fetch(`get_presences.php?session=${sessionId}`)
+        .then(res => res.json())
+        .then(data => {
+            const tbody = document.querySelector("#presenceTable tbody");
+            tbody.innerHTML = "";
+
+            if (!data.length) {
+                tbody.innerHTML = "<tr><td colspan='7'>No data found.</td></tr>";
+                return;
+            }
+
+            data.forEach(item => {
+                const row = document.createElement("tr");
+                row.innerHTML = `
+                    <td>${item.matricule}</td>
+                    <td>${item.nom}</td>
+                    <td>${item.prenom}</td>
+                    <td>${item.nom_module}</td>
+                    <td><span class="status-badge ${item.statut === 'présent' ? 'status-present' : item.statut === 'retard' ? 'status-late' : 'status-absent'}">${item.statut}</span></td>
+                    <td>${item.heure_reconnaissance}</td>
+                    <td>${item.date_reconnaissance}</td>
+                `;
+                tbody.appendChild(row);
+            });
+        })
+        .catch(err => {
+            console.error("❌ Failed to fetch presences:", err);
+        });
+}
+function fetchSessionsForDropdown() {
+    fetch('fetch_sessions.php')
+        .then(res => res.json())
+        .then(data => {
+            const select = document.getElementById("sessionSelect");
+            select.innerHTML = '<option value="">-- Select Session --</option>'; // 🧼 Reset first
+
+            if (!data.length) {
+                const opt = document.createElement("option");
+                opt.value = "";
+                opt.textContent = "No sessions available";
+                select.appendChild(opt);
+                return;
+            }
+
+            data.forEach(session => {
+                const option = document.createElement("option");
+                option.value = session.id_seance;
+                option.textContent = `${session.nom_module} - ${session.date_seance}`;
+                select.appendChild(option);
+            });
+        })
+        .catch(err => {
+            console.error("❌ Failed to fetch sessions:", err);
+        });
+}
+	function loadGroupsForStudentManage() {
+    const levelId = document.getElementById('level-filter').value;
+    const groupSelect = document.getElementById('group-filter');
+    groupSelect.innerHTML = "<option disabled selected>Loading groups...</option>";
+    groupSelect.disabled = true;
+
+    fetch(`fetch_groups_by_level.php?level_id=${levelId}`)
+        .then(response => response.json())
+        .then(groups => {
+            groupSelect.innerHTML = "";
+
+            if (groups.length === 0) {
+                groupSelect.innerHTML = "<option disabled>No groups found</option>";
+                return;
+            }
+
+            groups.forEach(group => {
+                const option = document.createElement('option');
+                option.value = group.id_groupe;
+                option.textContent = group.nom_groupe;
+                groupSelect.appendChild(option);
+            });
+
+            groupSelect.disabled = false;
+
+            // 🛠️ NEW: After loading groups, immediately trigger students fetch!
+            if (groups.length > 0) {
+                groupSelect.value = groups[0].id_groupe; // Select first group
+                fetchStudentsByLevelGroup(); // Fetch students for first group automatically
+            }
+        })
+        .catch(error => {
+            console.error('Error loading groups for manage students:', error);
+            groupSelect.innerHTML = "<option disabled>Error loading groups</option>";
+        });
+}
+
+function fetchStudentsByLevelGroup() {
+    const levelId = document.getElementById('level-filter').value;
+    const groupId = document.getElementById('group-filter').value;
+
+    fetch(`fetch_students_by_level_group.php?level_id=${levelId}&group_id=${groupId}`)
+        .then(response => response.json())
+        .then(data => {
+            // Populate your students table here
+        })
+        .catch(error => {
+            console.error('Error fetching students:', error);
+        });
+}
+
+	function showSessionsList() {
+    showSection('sessions-list'); // Switch to sessions section
+
+    fetch('fetch_sessions.php')
+        .then(response => response.json())
+        .then(data => {
+            const tbody = document.querySelector('#sessions-table tbody');
+            tbody.innerHTML = '';
+
+            if (data.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="4" style="text-align:center;">No sessions found.</td></tr>';
+                return;
+            }
+
+            data.forEach(session => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${session.nom_module}</td>
+                    <td>${session.nom_groupe_complet}</td>
+                    <td>${session.date_seance}</td>
+                    <td>${session.heure_debut} → ${session.heure_fin}</td>
+                `;
+                tbody.appendChild(row);
+            });
+        })
+        .catch(error => {
+            console.error('❌ Error fetching sessions:', error);
+        });
+}
+
+// Filter search function
+function filterSessions() {
+    const input = document.getElementById("search-session-input").value.toLowerCase();
+    const rows = document.querySelectorAll("#sessions-table tbody tr");
+
+    rows.forEach(row => {
+        const module = row.children[0].textContent.toLowerCase();
+        const group = row.children[1].textContent.toLowerCase();
+        row.style.display = (module.includes(input) || group.includes(input)) ? "" : "none";
+    });
+}
+
+	function showGroups() {
+    // Show the groups section
+    showSection('groups-list');
+
+    // Fetch groups from server
+    fetch('fetch_groups_list.php')
+        .then(response => response.json())
+        .then(groups => {
+            const tbody = document.getElementById('groups-table-body');
+            tbody.innerHTML = ''; // Clear old data
+
+            if (groups.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="3">No groups found</td></tr>';
+                return;
+            }
+
+            groups.forEach(group => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${group.id_groupe}</td>
+                    <td>${group.nom_groupe}</td>
+                    <td>${group.nom_niveau}</td>
+                `;
+                tbody.appendChild(row);
+            });
+        })
+        .catch(error => {
+            console.error('Error fetching groups:', error);
+            alert('Failed to load groups.');
+        });
+}
+
+	let plannedSessions = [];
+
+	function showAddModuleForm() {
+    document.getElementById('add-module-form').style.display = 'block';
+    if (!document.getElementById('form-overlay')) {
+        const overlay = document.createElement('div');
+        overlay.id = 'form-overlay';
+        overlay.className = 'overlay';
+        document.body.appendChild(overlay);
+        overlay.style.display = 'block';
+    }
+    fetch('fetch_professors.php')
+        .then(res => res.json())
+        .then(data => {
+            const select = document.getElementById('module-professor');
+            select.innerHTML = '';
+            data.forEach(prof => {
+                const option = document.createElement('option');
+                option.value = prof.id_enseignant;
+                option.textContent = `${prof.nom} ${prof.prenom}`;
+                select.appendChild(option);
+            });
+        });
+}
+
+function hideAddModuleForm() {
+    document.getElementById('add-module-form').style.display = 'none';
+    const overlay = document.getElementById('form-overlay');
+    if (overlay) overlay.remove();
+    document.getElementById('module-form').reset();
+}
+
+document.getElementById('module-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    const moduleData = {
+        nom_module: document.getElementById('module-name').value,
+        id_enseignant: document.getElementById('module-professor').value
+    };
+    fetch('add_module.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(moduleData)
+    })
+    .then(res => res.json())
+    .then(data => {
+        if (data.success) {
+            alert('Module added!');
+            hideAddModuleForm();
+            fetchModules(); // to be created
+        } else {
+            alert('Error: ' + data.message);
+        }
+    });
+});
+
+function fetchModules() {
+    fetch('fetch_modules.php')
+        .then(res => res.json())
+        .then(data => {
+            const tableBody = document.querySelector("#modules-table tbody");
+            tableBody.innerHTML = "";
+
+            data.forEach(module => {
+                const row = document.createElement("tr");
+                row.innerHTML = `
+                    <td>${module.id_module}</td>
+                    <td>${module.nom_module}</td>
+                    <td>${module.nom_professeur} ${module.prenom_professeur}</td>
+                    <td>
+                        <button class="action-btn edit-btn" onclick="showEditModuleForm(${module.id_module}, '${module.nom_module}', ${module.id_enseignant})">✏️</button>
+                        <button class="action-btn delete-btn" onclick="deleteModule(${module.id_module})">🗑️</button>
+                    </td>
+					
+					
+
+                `;
+                tableBody.appendChild(row);
+            });
+        });
+}
+function showModules() {
+    showSection('modules-list'); // shows the module list UI
+    fetchModules();              // loads the module data into the table
+}
+
+	// Professor Management Functions
+function showAddProfessorForm() {
+    document.getElementById('add-professor-form').style.display = 'block';
+
+    if (!document.getElementById('form-overlay')) {
+        const overlay = document.createElement('div');
+        overlay.id = 'form-overlay';
+        overlay.className = 'overlay';
+        document.body.appendChild(overlay);
+        overlay.style.display = 'block';
+    }
+}
+
+
+function hideAddProfessorForm() {
+    document.getElementById('add-professor-form').style.display = 'none';
+    document.getElementById('professor-form').reset();
+
+    const overlay = document.getElementById('form-overlay');
+    if (overlay) overlay.remove();
+}
+
+function deleteModule(id) {
+    if (!confirm("Are you sure you want to delete this module?")) return;
+
+    fetch('delete_module.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ id_module: id })
+    })
+    .then(res => res.json())
+    .then(data => {
+        if (data.success) {
+            alert('Module deleted successfully');
+            fetchModules();
+        } else {
+            alert('Error: ' + data.message);
+        }
+    });
+}
+
+// Add Professor Form Submission
+document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('professor-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const professorData = {
+            nom: document.getElementById('professor-lastname').value,
+            prenom: document.getElementById('professor-firstname').value,
+            email: document.getElementById('professor-email').value,
+            grade: document.getElementById('professor-grade').value,
+            departement: document.getElementById('professor-departement').value
+        };
+        
+        fetch('add_professor.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(professorData)
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                alert('Professor added successfully!');
+                hideAddProfessorForm();
+                if (!document.getElementById('professors-list').classList.contains('hidden')) {
+                    fetchProfessors();
+                }
+            } else {
+                alert('Error: ' + data.message);
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('An error occurred while adding the professor.');
+        });
+    });
+    
+    // Add event listener for edit professor form
+    document.getElementById('edit-professor-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const professorData = {
+            id_enseignant: document.getElementById('edit-professor-id').value,
+            nom: document.getElementById('edit-professor-lastname').value,
+            prenom: document.getElementById('edit-professor-firstname').value,
+            email: document.getElementById('edit-professor-email').value,
+            grade: document.getElementById('edit-professor-grade').value,
+            departement: document.getElementById('edit-professor-departement').value
+        };
+        
+        fetch('update_professor.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(professorData)
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                alert('Professor updated successfully!');
+                hideEditProfessorForm();
+                fetchProfessors();
+            } else {
+                alert('Error: ' + data.message);
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('An error occurred while updating the professor.');
+        });
+    });
+});
+
+// Fetch Professors List
+function fetchProfessors() {
+    fetch('fetch_professors.php')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            const tableBody = document.querySelector("#professors-table tbody");
+            tableBody.innerHTML = "";
+            
+            if (!data || data.length === 0) {
+                tableBody.innerHTML = "<tr><td colspan='6'>No professors found</td></tr>";
+                return;
+            }
+            
+            data.forEach(professor => {
+                const row = document.createElement("tr");
+                row.innerHTML = `
+                    <td>${professor.id_enseignant}</td>
+                    <td>${professor.nom} ${professor.prenom}</td>
+                    <td>${professor.grade}</td>
+                    <td>${professor.departement}</td>
+                    <td>${professor.email || 'N/A'}</td>
+                    <td>
+                        <button class="action-btn edit-btn" onclick="showEditProfessorForm(
+                            ${professor.id_enseignant}, 
+                            '${professor.nom}', 
+                            '${professor.prenom}', 
+                            '${professor.email || ''}', 
+                            '${professor.grade}', 
+                            '${professor.departement}'
+                        )">✏️</button>
+                        <button class="action-btn delete-btn" onclick="showDeleteProfessorConfirmation(${professor.id_enseignant})">🗑️</button>
+                    </td>
+                `;
+                tableBody.appendChild(row);
+            });
+            
+            // Reset pagination
+            currentProfessorPage = 1;
+            updateProfessorPagination();
+        })
+        .catch(error => {
+            console.error("Error fetching professors:", error);
+        });
+}
+
+function showEditProfessorForm(id, nom, prenom, email, grade, departement) {
+    document.getElementById('edit-professor-id').value = id;
+    document.getElementById('edit-professor-lastname').value = nom;
+    document.getElementById('edit-professor-firstname').value = prenom;
+    document.getElementById('edit-professor-email').value = email;
+    document.getElementById('edit-professor-grade').value = grade;
+    document.getElementById('edit-professor-departement').value = departement;
+
+document.getElementById('edit-professor-container').style.display = 'block';
+
+    // Only create overlay if it doesn't already exist
+    if (!document.getElementById('form-overlay')) {
+        const overlay = document.createElement('div');
+        overlay.id = 'form-overlay';
+        overlay.className = 'overlay';
+        document.body.appendChild(overlay);
+        overlay.style.display = 'block';
+    }
+}
+
+
+function hideEditProfessorForm() {
+document.getElementById('edit-professor-container').style.display = 'none';
+
+    const overlay = document.getElementById('form-overlay');
+    if (overlay) {
+        overlay.remove();
+    }
+}
+
+
+
+// Delete Professor Functions
+function showDeleteProfessorConfirmation(professorId) {
+    document.getElementById('delete-professor-id').value = professorId;
+    document.getElementById('delete-professor-confirmation').style.display = 'block';
+    
+    // Create overlay for modal
+    const overlay = document.createElement('div');
+    overlay.id = 'delete-professor-overlay';
+    overlay.className = 'overlay';
+    document.body.appendChild(overlay);
+    overlay.style.display = 'block';
+}
+
+function hideDeleteProfessorConfirmation() {
+    document.getElementById('delete-professor-confirmation').style.display = 'none';
+    
+    // Remove overlay
+    const overlay = document.getElementById('delete-professor-overlay');
+    if (overlay) {
+        overlay.remove();
+    }
+}
+
+function confirmDeleteProfessor() {
+    const professorId = document.getElementById('delete-professor-id').value;
+    
+    fetch('delete_professor.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ id_enseignant: professorId })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            alert('Professor deleted successfully!');
+            hideDeleteProfessorConfirmation();
+            fetchProfessors();
+        } else {
+            alert('Error: ' + data.message);
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('An error occurred while deleting the professor.');
+    });
+}
+
+// Sorting and Filtering Functions for Professors
+function sortProfessorsTable(columnIndex) {
+    const table = document.getElementById("professors-table");
+    const rows = Array.from(table.querySelectorAll("tbody tr"));
+    const isAscending = table.querySelectorAll("th")[columnIndex].classList.toggle("asc");
+    
+    rows.sort((a, b) => {
+        const aValue = a.querySelectorAll("td")[columnIndex].textContent;
+        const bValue = b.querySelectorAll("td")[columnIndex].textContent;
+        return isAscending ? aValue.localeCompare(bValue) : bValue.localeCompare(aValue);
+    });
+    
+    table.querySelector("tbody").innerHTML = "";
+    rows.forEach(row => table.querySelector("tbody").appendChild(row));
+}
+
+function filterProfessors() {
+    const input = document.getElementById("professor-search-input").value.toLowerCase();
+    const rows = document.querySelectorAll("#professors-table tbody tr");
+    
+    rows.forEach(row => {
+        const name = row.querySelectorAll("td")[1].textContent.toLowerCase();
+        const department = row.querySelectorAll("td")[3].textContent.toLowerCase();
+        row.style.display = (name.includes(input) || department.includes(input)) ? "" : "none";
+    });
+}
+
+// Pagination for Professors
+let currentProfessorPage = 1;
+const professorsPerPage = 10;
+
+function updateProfessorPagination() {
+    const rows = document.querySelectorAll("#professors-table tbody tr");
+    const totalPages = Math.ceil(rows.length / professorsPerPage);
+    
+    rows.forEach((row, index) => {
+        row.style.display = (index >= (currentProfessorPage - 1) * professorsPerPage && 
+                            index < currentProfessorPage * professorsPerPage) ? "" : "none";
+    });
+    
+    document.getElementById("prev-professor-page").disabled = currentProfessorPage === 1;
+    document.getElementById("next-professor-page").disabled = currentProfessorPage === totalPages || totalPages === 0;
+}
+
+function changeProfessorPage(direction) {
+    currentProfessorPage += direction;
+    const rows = document.querySelectorAll("#professors-table tbody tr");
+    const totalPages = Math.ceil(rows.length / professorsPerPage);
+    
+    if (currentProfessorPage < 1) currentProfessorPage = 1;
+    if (currentProfessorPage > totalPages) currentProfessorPage = totalPages;
+    
+    updateProfessorPagination();
+}
+    function showSection(sectionId) {
+        document.querySelectorAll('.main-content').forEach(section => {
+            section.classList.add('hidden');
+        });
+        document.getElementById(sectionId).classList.remove('hidden');
+
+        if (sectionId === 'students-list') {
+            fetchSessions();
+            fetchStudents();
+        } else if (sectionId === 'professors-list') {
+            fetchProfessors();
+        } else if (sectionId === 'students-list-by-level-group') {
+            fetchStudentsByLevelGroup();
+        }
+		else if (sectionId === 'presence-view') {
+        fetchSessionsForDropdown();  
+    }
+		else if (sectionId === 'professors-presence-view') {
+    fetchSessionsForProfDropdown();
+}
+else if (sectionId === 'professors-presence-view') {
+    fetchSessionsForProfDropdown();
+}
+    }
+
+    function showAddStudentForm() {
+        document.getElementById('add-student-form').style.display = 'block';
+    }
+	document.getElementById('student-level').addEventListener('change', function() {
+    const levelId = this.value;
+    const groupSelect = document.getElementById('student-group');
+    groupSelect.innerHTML = "<option disabled selected>Loading groups...</option>";
+
+    fetch(`fetch_groups_by_level.php?level_id=${levelId}`)
+        .then(response => response.json())
+        .then(groups => {
+            groupSelect.innerHTML = "";
+            if (groups.length === 0) {
+                groupSelect.innerHTML = "<option disabled>No groups found</option>";
+                return;
+            }
+
+            groups.forEach(group => {
+                const option = document.createElement('option');
+                option.value = group.id_groupe;
+                option.textContent = group.nom_groupe;
+                groupSelect.appendChild(option);
+            });
+        })
+        .catch(error => {
+            console.error('Error loading groups:', error);
+            groupSelect.innerHTML = "<option disabled>Error loading groups</option>";
+        });
+});
+
+
+    function hideAddStudentForm() {
+	
+        document.getElementById('add-student-form').style.display = 'none';
+        document.getElementById('student-form').reset();
+    }
+
+document.getElementById('student-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const formData = new FormData();
+    formData.append('matricule', document.getElementById('student-matricule').value);
+    formData.append('nom', document.getElementById('student-lastname').value);
+    formData.append('prenom', document.getElementById('student-firstname').value);
+    formData.append('email', document.getElementById('student-email').value);
+        formData.append('password', document.getElementById('student-password').value);
+
+	formData.append('id_niveau', document.getElementById('student-level').value);
+    formData.append('id_groupe', document.getElementById('student-group').value);
+
+    const photoFile = document.getElementById('student-photo').files[0];
+    if (photoFile) {
+        formData.append('photo', photoFile);
+    }
+
+    fetch('add_student.php', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            alert('Student added successfully!');
+            hideAddStudentForm(); // optional if you want
+            if (!document.getElementById('students-list').classList.contains('hidden')) {
+                fetchStudents();
+            }
+            if (!document.getElementById('students-list-by-level-group').classList.contains('hidden')) {
+                fetchStudentsByLevelGroup();
+            }
+        } else {
+            alert('Error: ' + data.message);
+        }
+    })
+    
+});
+
+
+    function fetchSessions() {
+        fetch('fetch_sessions.php')
+            .then(response => response.json())
+            .then(data => {
+                const sessionFilter = document.getElementById("session-filter");
+                sessionFilter.innerHTML = "";
+                data.forEach(session => {
+                    const option = document.createElement("option");
+                    option.value = session.id_seance;
+                    option.textContent = `${session.date_seance} - ${session.nom_module}`;
+                    sessionFilter.appendChild(option);
+                });
+            });
+    }
+
+    function fetchStudents() {
+        const sessionId = document.getElementById("session-filter").value;
+        fetch(`fetch_students.php?session_id=${sessionId}`)
+            .then(response => response.json())
+            .then(data => {
+                const tableBody = document.querySelector("#students-table tbody");
+                tableBody.innerHTML = "";
+                data.forEach(student => {
+                    const row = document.createElement("tr");
+                    row.innerHTML = `
+                        <td>${student.matricule}</td>
+                        <td>${student.nom} ${student.prenom}</td>
+                        <td>${student.nom_niveau}</td>
+                        <td>${student.nom_groupe}</td>
+                        <td>${student.statut || 'N/A'}</td>
+                        <td>
+                            <button class="action-btn edit-btn" onclick="showEditStudentForm(${student.id_etudiant}, '${student.matricule}', '${student.nom}', '${student.prenom}', '${student.email}', ${student.id_niveau}, ${student.id_groupe})">✏️</button>
+                            <button class="action-btn delete-btn" onclick="showDeleteConfirmation(${student.id_etudiant})">🗑️</button>
+                        </td>
+                    `;
+                    tableBody.appendChild(row);
+                });
+            });
+    }
+
+    function showEditStudentForm(studentId, matricule, lastName, firstName, email, levelId, groupId) {
+        document.getElementById('edit-student-id').value = studentId;
+        document.getElementById('edit-student-matricule').value = matricule;
+        document.getElementById('edit-student-lastname').value = lastName;
+        document.getElementById('edit-student-firstname').value = firstName;
+        document.getElementById('edit-student-email').value = email;
+        document.getElementById('edit-student-level').value = levelId;
+        document.getElementById('edit-student-group').value = groupId;
+        document.getElementById('edit-student-form').style.display = 'block';
+
+        const overlay = document.createElement('div');
+        overlay.id = 'form-overlay';
+        overlay.className = 'overlay';
+        document.body.appendChild(overlay);
+        overlay.style.display = 'block';
+    }
+
+    function hideEditStudentForm() {
+    document.getElementById('edit-student-form').style.display = 'none';
+    const overlay = document.getElementById('form-overlay');
+    if (overlay) overlay.remove();
+}
+
+    function showDeleteConfirmation(studentId) {
+        document.getElementById('delete-student-id').value = studentId;
+        document.getElementById('delete-confirmation').style.display = 'block';
+    }
+
+    function hideDeleteConfirmation() {
+        document.getElementById('delete-confirmation').style.display = 'none';
+    }
+
+    function confirmDeleteStudent() {
+        const studentId = document.getElementById('delete-student-id').value;
+        fetch('delete_student.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ id_etudiant: studentId })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                alert('Student deleted successfully!');
+                hideDeleteConfirmation();
+                fetchStudents();
+                fetchStudentsByLevelGroup();
+            } else {
+                alert('Error: ' + data.message);
+            }
+        })
+        
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        document.getElementById('edit-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const studentData = {
+                id_etudiant: document.getElementById('edit-student-id').value,
+                matricule: document.getElementById('edit-student-matricule').value,
+                nom: document.getElementById('edit-student-lastname').value,
+                prenom: document.getElementById('edit-student-firstname').value,
+                email: document.getElementById('edit-student-email').value,
+                id_niveau: document.getElementById('edit-student-level').value,
+                id_groupe: document.getElementById('edit-student-group').value
+            };
+            fetch('update_student.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(studentData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert('Student updated successfully!');
+                    hideEditStudentForm();
+                    fetchStudents();
+                    fetchStudentsByLevelGroup();
+                } else {
+                    alert('Error: ' + data.message);
+                }
+            })
+
+        });
+    });
+
+   function fetchProfessors() {
+    fetch('fetch_professors.php')
+        .then(response => response.json())
+        .then(data => {
+            const tableBody = document.querySelector("#professors-table tbody");
+            tableBody.innerHTML = "";
+            data.forEach(professor => {
+                const row = document.createElement("tr");
+                row.innerHTML = `
+                    <td>${professor.id_enseignant}</td>
+                    <td>${professor.nom} ${professor.prenom}</td>
+                    <td>${professor.grade}</td>
+                    <td>${professor.departement}</td>
+                    <td>${professor.email}</td>
+                    <td>
+                        <button class="action-btn edit-btn"
+                            onclick="showEditProfessorForm(${professor.id_enseignant}, '${professor.nom}', '${professor.prenom}', '${professor.email}', '${professor.grade}', '${professor.departement}')">✏️</button>
+                        <button class="action-btn delete-btn"
+                            onclick="showDeleteProfessorConfirmation(${professor.id_enseignant})">🗑️</button>
+                    </td>
+                `;
+                tableBody.appendChild(row);
+            });
+        });
+}
+
+
+    function fetchStudentsByLevelGroup() {
+        const levelId = document.getElementById("level-filter").value;
+        const groupId = document.getElementById("group-filter").value;
+
+        fetch(`fetch_students_by_level_group.php?level_id=${levelId}&group_id=${groupId}`)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                const tableBody = document.querySelector("#students-table-by-level-group tbody");
+                tableBody.innerHTML = "";
+
+                if (!data || data.length === 0) {
+                    tableBody.innerHTML = "<tr><td colspan='5'>No students found</td></tr>";
+                    return;
+                }
+
+                data.forEach(student => {
+                    const row = document.createElement("tr");
+                    const groupName = student.group_name.replace("L3-", "");
+                    row.innerHTML = `
+                        <td>${student.matricule}</td>
+                        <td>${student.nom} ${student.prenom}</td>
+                        <td>${student.level}</td>
+                        <td>${groupName}</td>
+                        <td>
+                            <button class="action-btn edit-btn"
+                                onclick="showEditStudentForm(${student.id_etudiant}, '${student.matricule}', '${student.nom}', '${student.prenom}', '${student.email}', ${levelId}, ${groupId})">✏️</button>
+                            <button class="action-btn delete-btn"
+                                onclick="showDeleteConfirmation(${student.id_etudiant})">🗑️</button>
+                        </td>
+                    `;
+                    tableBody.appendChild(row);
+                });
+            })
+            .catch(error => {
+                console.error("Error fetching students by level and group:", error);
+            });
+    }
+
+    function sortTable(columnIndex) {
+        const table = document.getElementById("students-table");
+        const rows = Array.from(table.querySelectorAll("tbody tr"));
+        const isAscending = table.querySelectorAll("th")[columnIndex].classList.toggle("asc");
+        rows.sort((a, b) => {
+            const aValue = a.querySelectorAll("td")[columnIndex].textContent;
+            const bValue = b.querySelectorAll("td")[columnIndex].textContent;
+            return isAscending ? aValue.localeCompare(bValue) : bValue.localeCompare(aValue);
+        });
+        table.querySelector("tbody").innerHTML = "";
+        rows.forEach(row => table.querySelector("tbody").appendChild(row));
+    }
+
+    function filterStudents() {
+        const input = document.getElementById("search-input").value.toLowerCase();
+        const rows = document.querySelectorAll("#students-table tbody tr");
+        rows.forEach(row => {
+            const name = row.querySelectorAll("td")[1].textContent.toLowerCase();
+            const matricule = row.querySelectorAll("td")[0].textContent.toLowerCase();
+            row.style.display = (name.includes(input) || matricule.includes(input)) ? "" : "none";
+        });
+    }
+
+    let currentPage = 1;
+    const rowsPerPage = 10;
+
+    function changePage(direction) {
+        currentPage += direction;
+        const rows = document.querySelectorAll("#students-table tbody tr");
+        const totalPages = Math.ceil(rows.length / rowsPerPage);
+
+        if (currentPage < 1) currentPage = 1;
+        if (currentPage > totalPages) currentPage = totalPages;
+
+        rows.forEach((row, index) => {
+            row.style.display = (index >= (currentPage - 1) * rowsPerPage && index < currentPage * rowsPerPage) ? "" : "none";
+        });
+
+        document.getElementById("prev-page").disabled = currentPage === 1;
+        document.getElementById("next-page").disabled = currentPage === totalPages;
+    }
+	function showEditModuleForm(id, nom, profId) {
+    document.getElementById('edit-module-id').value = id;
+    document.getElementById('edit-module-name').value = nom;
+
+    fetch('fetch_professors.php')
+        .then(res => res.json())
+        .then(data => {
+            const select = document.getElementById('edit-module-professor');
+            select.innerHTML = '';
+            data.forEach(prof => {
+                const opt = document.createElement('option');
+                opt.value = prof.id_enseignant;
+                opt.textContent = `${prof.nom} ${prof.prenom}`;
+                if (prof.id_enseignant == profId) opt.selected = true;
+                select.appendChild(opt);
+            });
+            document.getElementById('edit-module-form').style.display = 'block';
+            if (!document.getElementById('form-overlay')) {
+                const overlay = document.createElement('div');
+                overlay.id = 'form-overlay';
+                overlay.className = 'overlay';
+                document.body.appendChild(overlay);
+                overlay.style.display = 'block';
+            }
+        });
+}
+
+function hideEditModuleForm() {
+    document.getElementById('edit-module-form').style.display = 'none';
+    const overlay = document.getElementById('form-overlay');
+    if (overlay) overlay.remove();
+}
+
+document.getElementById('module-edit-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const data = {
+        id_module: document.getElementById('edit-module-id').value,
+        nom_module: document.getElementById('edit-module-name').value,
+        id_enseignant: document.getElementById('edit-module-professor').value
+    };
+
+    fetch('edit_module.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+    })
+    .then(res => res.json())
+    .then(data => {
+        if (data.success) {
+            alert('Module updated!');
+            hideEditModuleForm();
+            fetchModules();
+        } else {
+            alert('Error: ' + data.message);
+        }
+    });
+});
+document.addEventListener('DOMContentLoaded', () => {
+    console.log("✅ planning.js loaded");
+
+    let plannedSessions = [];
+
+    // When level changes, load groups
+    document.getElementById('planning-niveau').addEventListener('change', function() {
+        const levelId = this.value;
+        const groupSelect = document.getElementById('planning-groupe');
+        groupSelect.innerHTML = "<option disabled selected>Loading groups...</option>";
+
+        fetch(`fetch_groups_by_level.php?level_id=${levelId}`)
+            .then(response => response.json())
+            .then(data => {
+                groupSelect.innerHTML = "";
+
+                if (data.length === 0) {
+                    groupSelect.innerHTML = "<option disabled>No groups found</option>";
+                    return;
+                }
+
+                data.forEach(group => {
+                    const option = document.createElement('option');
+                    option.value = group.id_groupe;
+                    option.textContent = group.nom_groupe;
+                    groupSelect.appendChild(option);
+                });
+            })
+            .catch(error => {
+                console.error('❌ Error fetching groups:', error);
+                groupSelect.innerHTML = "<option disabled>Error loading groups</option>";
+            });
+    });
+
+    // Show form to add planning
+    window.showAddPlanningForm = function() {
+        document.getElementById('add-planning-form').style.display = 'block';
+        if (!document.getElementById('form-overlay')) {
+            const overlay = document.createElement('div');
+            overlay.id = 'form-overlay';
+            overlay.className = 'overlay';
+            document.body.appendChild(overlay);
+            overlay.style.display = 'block';
+        }
+
+        // Load modules into select
+        fetch('fetch_modules.php')
+            .then(res => res.json())
+            .then(data => {
+                const select = document.getElementById('planning-module');
+                select.innerHTML = '';
+                data.forEach(m => {
+                    const option = document.createElement('option');
+                    option.value = m.id_module;
+                    option.textContent = m.nom_module;
+                    select.appendChild(option);
+                });
+            });
+    };
+
+    // Hide planning form
+    window.hideAddPlanningForm = function() {
+        document.getElementById('add-planning-form').style.display = 'none';
+        const overlay = document.getElementById('form-overlay');
+        if (overlay) overlay.remove();
+        document.getElementById('planning-form').reset();
+    };
+
+    // Display planned sessions from server
+    window.displayPlannedSessions = function() {
+        const table = document.getElementById('planned-sessions-table');
+        table.style.display = 'table';
+        const tbody = table.querySelector('tbody');
+        tbody.innerHTML = "";
+
+        fetch('fetch_sessions.php')
+            .then(res => res.json())
+            .then(sessionsFromServer => {
+                if (!sessionsFromServer.length) {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `<td colspan="4" style="text-align:center;">No sessions planned yet</td>`;
+                    tbody.appendChild(row);
+                    return;
+                }
+
+                plannedSessions = sessionsFromServer;
+
+                sessionsFromServer.forEach(session => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${session.nom_module}</td>
+                        <td>${session.nom_groupe_complet}</td>
+                        <td>${session.date_seance}</td>
+                        <td>${session.heure_debut} → ${session.heure_fin}</td>
+                    `;
+                    tbody.appendChild(row);
+                });
+            })
+            .catch(error => {
+                console.error('❌ Error fetching sessions:', error);
+                const row = document.createElement('tr');
+                row.innerHTML = `<td colspan="4" style="text-align:center;">⚠️ Failed to load sessions</td>`;
+                tbody.appendChild(row);
+            });
+    };
+
+    // Listen form submit to generate full semester
+    document.getElementById('planning-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const id_module = document.getElementById('planning-module').value;
+        const id_groupe = document.getElementById('planning-groupe').value;
+        const heure_debut = document.getElementById('planning-start').value;
+        const heure_fin = document.getElementById('planning-end').value;
+        const startDate = new Date(document.getElementById('semester-start').value);
+        const endDate = new Date(document.getElementById('semester-end').value);
+
+        const promises = [];
+
+        let currentDate = new Date(startDate);
+
+        while (currentDate <= endDate) {
+            const payload = {
+                id_module: parseInt(id_module),
+                id_groupe: parseInt(id_groupe),
+                date_seance: currentDate.toISOString().split('T')[0],
+                heure_debut: heure_debut,
+                heure_fin: heure_fin
+            };
+
+            promises.push(
+                fetch('add_seance.php', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                }).then(response => response.json())
+            );
+
+            currentDate.setDate(currentDate.getDate() + 7);
+        }
+
+        Promise.all(promises)
+            .then(results => {
+                if (results.every(r => r.success)) {
+                    alert('✅ All sessions generated successfully!');
+                    hideAddPlanningForm();
+                } else {
+                    console.error(results);
+                    alert('⚠️ Some sessions failed to generate.');
+                }
+            })
+            .catch(error => {
+                console.error(error);
+                alert('❌ An error occurred.');
+            });
+    });
+});
+document.addEventListener('DOMContentLoaded', function () {
+    const editLevel = document.getElementById('edit-student-level');
+    const editGroup = document.getElementById('edit-student-group');
+
+    if (editLevel && editGroup) {
+        editLevel.addEventListener('change', function () {
+            const levelId = this.value;
+            editGroup.innerHTML = "<option disabled selected>Loading groups...</option>";
+
+            fetch(`fetch_groups_by_level.php?level_id=${levelId}`)
+                .then(response => response.json())
+                .then(groups => {
+                    editGroup.innerHTML = "";
+                    if (groups.length === 0) {
+                        editGroup.innerHTML = "<option disabled>No groups found</option>";
+                        return;
+                    }
+                    groups.forEach(group => {
+                        const option = document.createElement('option');
+                        option.value = group.id_groupe;
+                        option.textContent = group.nom_groupe;
+                        editGroup.appendChild(option);
+                    });
+                })
+                .catch(error => {
+                    console.error('❌ Error loading groups for edit form:', error);
+                    editGroup.innerHTML = "<option disabled>Error loading groups</option>";
+                });
+        });
+    }
+});
+
+
+
+</script>
+
+<!-- Edit Student Form -->
+<div id="edit-student-form" style="display: none;">
+    <h3>Edit Student</h3>
+    <form id="edit-form">
+        <input type="hidden" id="edit-student-id">
+
+        <div class="form-group">
+            <label for="edit-student-matricule">Matricule:</label>
+            <input type="text" id="edit-student-matricule" class="form-control" required>
+        </div>
+
+        <div class="form-group">
+            <label for="edit-student-lastname">Last Name:</label>
+            <input type="text" id="edit-student-lastname" class="form-control" required>
+        </div>
+
+        <div class="form-group">
+            <label for="edit-student-firstname">First Name:</label>
+            <input type="text" id="edit-student-firstname" class="form-control" required>
+        </div>
+
+        <div class="form-group">
+            <label for="edit-student-email">Email:</label>
+            <input type="email" id="edit-student-email" class="form-control" required>
+        </div>
+
+        <div class="form-group">
+            <label for="edit-student-level">Level:</label>
+<select id="edit-student-level" class="form-control" required>
+                <option value="1">L1</option>
+                <option value="2">L2</option>
+                <option value="3">L3</option>
+                <option value="4">M1</option>
+                <option value="5">M2</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="edit-student-group">Group:</label>
+<select id="edit-student-group" class="form-control" required>
+                <option value="1">Group 1</option>
+                <option value="2">Group 2</option>
+                <option value="3">Group 3</option>
+            </select>
+        </div>
+
+        <div class="form-actions">
+            <button type="button" class="btn btn-outline" onclick="hideEditStudentForm()">Cancel</button>
+            <button type="submit" class="btn btn-success">Save</button>
+        </div>
+    </form>
+</div>
+
+
+<!-- Delete Confirmation Modal -->
+<div id="delete-confirmation" class="modal">
+    <div class="modal-content">
+        <input type="hidden" id="delete-student-id">
+        <p>Are you sure you want to delete this student?</p>
+        <button onclick="confirmDeleteStudent()">Yes, Delete</button>
+        <button onclick="hideDeleteConfirmation()">Cancel</button>
+    </div>
+</div>
+</body>
+</html>

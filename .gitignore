@@ -1,0 +1,64 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+myenv/
+buildozer_env/
+
+# Database
+*.pkl
+*.db
+*.sqlite
+*.sqlite3
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# OS
+Thumbs.db
+.env
+.env.local
+
+# Logs
+*.log
+debug_log.txt
+
+# Generated files
+*.h5
+*.keras
+class_labels.json
+class_indices.pkl
+class_mapping.pkl
+
+# Temporary folders
+tmp/
+temp/
+server_images/
+bin/
